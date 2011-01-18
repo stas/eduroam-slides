@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-<title>ScholarPress BuddyPress Courseware Slides for WordCamp Bucharest 2010</title>
+<title>Eduroam in RoEduNet</title>
 <!-- metadata -->
 <meta name="generator" content="S5" />
 <meta name="version" content="S5 1.2a2" />
@@ -40,39 +40,175 @@ img#me05 {top: 43px;left: 36px;}
 <div id="currentSlide"><!-- DO NOT EDIT --></div>
 <div id="header"></div>
 <div id="footer">
-<h1>SLIDES_NAME</h1>
-<h2><a href="#">WWW</a> &#8226; DATE, TechTalks Cluj-Napoca, UBB</h2>
+<h1>Eduroam in RoEduNet</h1>
+<h2><a href="http://stas.nerd.ro">stas.nerd.ro</a> &#8226; 17 ian. 2011, TechTalks Cluj-Napoca, UBB</h2>
 </div>
 </div>
 
 <div class="presentation">
 
 <div class="slide">
-<h1>TechTalks &mdash; SLIDES_NAME</h1>
-<h3>AUTHOR</h3>
-<h4><a href="#" rel="external">SOME_LINK</a></h4>
+<h1>TechTalks &mdash; Eduroam in RoEduNet</h1>
+<h3>Stas Sușcov</h3>
+<h4><a href="http://stas.nerd.ro" rel="external">stas.nerd.ro</a></h4>
 <div class="handout"></div>
 </div>
 
     <div class="slide">
-        <h1>SLIDE1TITLE</h1>
+        <h1>The Problem!</h1>
         <ul class="incremental">
             <li>
-                SOME TEXT
+                Current status and deployment workflow of classic wireless networks with large userbase
             </li>
             <li class="alert">
-                SOME ALERT
+                Takes lots of time and human resources, so we need to automate this thingy!
             </li>
         </ul>
-
-        <div class="notes">
-        <ul>
-            <li>Note 1</li>
-            <li>Note 2</li>
-        </ul>
-        </div>
     </div>
 
+
+    <div class="slide">
+        <h1>Main concerns</h1>
+        <ul class="incremental">
+            <li>
+                Deployment time
+            </li>
+            <li>
+                Security
+            </li>
+            <li>
+                Maintanence costs
+            </li>
+            <li>
+                Scalability
+            </li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h1>Tools</h1>
+        <ul class="incremental">
+            <li>
+                Linux/Unix environment with SSL/TLS support (mainly for certificate generation)
+            </li>
+            <li>
+                Radius server installed
+            </li>
+            <li>
+                Local LDAP or external LDAP alike servers (ActiveDirectory) for users/ACL
+            </li>
+            <li>
+                Equipment that supports Radius integration (cheapest might be Linksys)
+            </li>
+        </ul>
+    </div>
+    
+    <div class="slide">
+        <h1>Security Aspects</h1>
+        <ul class="incremental">
+            <li>
+                No more vulnerable authentication protocols with high probability data leaks (WEP/WPA-personal?!). Uses <a href="http://en.wikipedia.org/wiki/MS-CHAP">MS-CHAPv2</a> instead of PAP.
+            </li>
+            <li>
+                Usage of certificates, tunneling the data through a <a href="http://en.wikipedia.org/wiki/TTLS#EAP-TTLS">TTLS</a> connection.
+            </li>
+            <li>
+                Authentication using username/password combination with ACL <a href="http://eduroam.utcluj.ro/">&nbsp;</a>
+            </li>
+            <li>
+                Easy way to monitor user activity using flows/logs
+            </li>
+        </ul>
+    </div>
+    
+    <div class="slide">
+        <h1>Authentication Process</h1>
+        <img src="img/authentication_process.png" alt="" />
+    </div>
+
+    <div class="slide">
+        <h1>Maintanence costs</h1>
+        <ul class="incremental">
+            <li>
+                LDAP or alike servers are well integrated in a big number of CRM/Enterprise HR software solutions
+            </li>
+            <li>
+                Unix envronment maintanence (mostly to get the updates)
+            </li>
+            <li>
+                Most of the enterprise level network equipment already has support for Radius external authentication protocol
+            </li>
+        </ul>
+    </div>
+    
+    <div class="slide">
+        <h1>Scalability</h1>
+        <ul class="incremental">
+            <li>
+                Mainly LDAP or user credentials server is the biggest problem. This can be solved by replicating such databases.
+            </li>
+            <li>
+                Radius servers can be organized in a descentralized way, so they work not depending on database location or equipment positioning.
+            </li>
+            <li>
+                The overhead for the network equipment is zero!
+            </li>
+        </ul>
+    </div>
+    
+    <div class="slide">
+        <h1>Eduroam</h1>
+        <ul class="incremental">
+            <li>
+                Is a verified and confirmed network infrastructure for enterprise level organizations, that was started inside <a href="http://www.geant.net/">Geant</a>
+                for education institutions.
+            </li>
+            <li>
+                It offers a set of documentation and support resources to deploy and help people adapt their current network.
+            </li>
+            <li>
+                It's a community of people with years of experience and background.
+            </li>
+            <li>
+                <a href="http://monitor.eduroam.org/">Deployed all over Europe</a>.
+            </li>
+            <li>
+                Presence in Romania through <a href="http://roedu.net/">RoEduNet</a> and it's regional agencies.
+            </li>
+        </ul>
+    </div>
+    
+    <div class="slide">
+        <h1>About me</h1>
+        <ul class="incremental">
+            <li>
+                Worked for <a href="http://cc.utcluj.ro/alumni/stas">UTCN-NOC</a> as part of RoEduNet team during ~2009...
+            </li>
+            <li>
+                Helped deploying current UTCN network infrastructure.
+            </li>
+            <li>
+                Patched Radius servers to make them use OpenSSL.
+            </li>
+            <li>
+                Wrote Eduroam DB <a href="https://github.com/stas/eduroam-db">monitoring tools</a>.
+            </li>
+            <li>
+                Contact: <a href="mailto:stas@net.utcluj.ro">stas@net.utcluj.ro</a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="slide">
+        <h1>Bibliography</h1>
+        <ul class="incremental">
+            <li>
+                <a href="http://www.csfnau.kiev.ua/kipz/ua/ROMANIA/papers/058%20-%20061-%20Rozsa.pdf">IEEE Papaer</a> published by some of my ex-colleagues.
+            </li>
+        </ul>
+    </div>
+    
+    
 </div>
 
 </body>
